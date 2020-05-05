@@ -44,7 +44,7 @@ async fn build_kafka(
         .create::<AdminClient<_>>()
         .expect("creating admin kafka client failed")
         .create_topics(
-            &[NewTopic::new(&topic, 1, TopicReplication::Fixed(1))],
+            &[NewTopic::new(&topic, 1, TopicReplication::Fixed(3))],
             &AdminOptions::new().request_timeout(Some(Duration::from_secs(5))),
         )
         .await
